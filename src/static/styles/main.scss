@@ -1,0 +1,44 @@
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/_mixins.scss';
+@import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+
+// can add Boostrap overrides, additional Sass/CSS below...
+
+.container {
+		// background-color: red;
+		display: flex;
+		flex: 1;
+		// justify-content: center;
+		// align-items: center;
+		flex-direction: column;
+		overflow-y: scroll;
+}
+
+.storyItem {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		// align-items: center;
+		// margin-bottom: 5px;
+}
+
+.score {
+		flex: 1;
+		padding-left: 5px;
+		padding-right: 5px;
+}
+
+.title {
+		flex: 7;
+}
+
+.storyItem a {
+		// padding-left: 10px;
+		// background-color: yellow;
+}
+
+.author {
+		flex: 1;
+		text-align: right;
+}
+
