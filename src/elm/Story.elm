@@ -11,7 +11,7 @@ type Msg
 
 
 story : Item -> Html a
-story { by, descendants, id, score, time, title, url } =
+story { by, descendants, kids, id, score, time, title, url } =
     case id of
         0 ->
             div [] []
@@ -24,8 +24,19 @@ story { by, descendants, id, score, time, title, url } =
                 storyString =
                     toString storyDate
             in
-                div [ class "storyItem" ]
-                    [ p [ class "score" ] [ text (toString score) ]
-                    , a [ class "title", href url, target "_blank" ] [ text title ]
-                    , p [ class "author" ] [ text by ]
+                div []
+                    [ div [ class "storyItem" ]
+                        [ p [ class "score" ] [ text (toString score) ]
+                        , span [ class "link" ]
+                            [ a [ href url, target "_blank" ] [ text title ]
+                            , p [ class "commentSpacer" ] [ text "  ::  " ]
+                            , commentLink id (List.length kids)
+                            ]
+                        , p [ class "author" ] [ text by ]
+                        ]
                     ]
+
+
+commentLink : Int -> Int -> Html a
+commentLink id num =
+    p [] [ a [ href ("/#/comments/" ++ (toString id)) ] [ text ((toString num) ++ " comments") ] ]
